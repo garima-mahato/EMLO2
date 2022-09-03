@@ -17,4 +17,4 @@ COPY . .
 #EXPOSE 5000
 
 # run the application
-#CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+ENTRYPOINT [ "python3", "-m" , "./infer.py"]

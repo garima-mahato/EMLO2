@@ -1,8 +1,8 @@
 # base image
-FROM python:3.10.5-alpine
+FROM python:3.7-slim-buster
 
 # set working directory inside the image
-#WORKDIR /app
+WORKDIR /app
 
 # copy our requirements
 COPY requirements.txt requirements.txt
@@ -11,10 +11,10 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # copy this folder contents to image
-#COPY . .
+COPY . .
 
 # tell the port number the container should expose
 #EXPOSE 5000
 
 # run the application
-#CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+ENTRYPOINT [ "python3", "-m" , "./infer.py"]
